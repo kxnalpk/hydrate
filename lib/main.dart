@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: isviewed != 0 ? const OnBoarding() : const Home(),
+      home: isviewed != 0 ? const OnBoarding() : const MainApp(),
     );
   }
 }

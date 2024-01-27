@@ -32,14 +32,14 @@ class _OnBoardState extends State<OnBoarding> {
   late PageController _pageController;
   List<OnboardingPages> screens = <OnboardingPages>[
     OnboardingPages(
-      heading: "Since you're here, it means you also forget to drink water.",
+      heading: "Don't remember to drink water?",
       paragraph:
           "Don't worry. you are at the right place! Myself Kunal and have created this application to remind you (and myself) to drink water!",
       background: Colors.white,
       button: const Color.fromRGBO(80, 91, 230, 1),
     ),
     OnboardingPages(
-      heading: "We are done setting up things, click next to continue!",
+      heading: "You are almost done!",
       paragraph: "Great! We have configured the application for you! We'll send you a notification when it's the time to drink water!",
       background: const Color.fromRGBO(80, 91, 230, 1),
       button: Colors.white,
@@ -82,7 +82,7 @@ class _OnBoardState extends State<OnBoarding> {
             onPressed: () {
               _storeOnboardInfo();
               Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (context) => const Home()));
+                  context, MaterialPageRoute(builder: (context) => const MainApp()));
             },
             child: Text(
               "Skip",
@@ -122,18 +122,14 @@ class _OnBoardState extends State<OnBoarding> {
                     },
                   ),
                 ),
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 20.0),
-                  child: Text(
-                    screens[index].heading,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 25.0,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Poppins',
-                      color: index % 2 == 0 ? Colors.black : Colors.white,
-                    ),
+                Text(
+                  screens[index].heading,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Poppins',
+                    color: index % 2 == 0 ? Colors.black : Colors.white,
                   ),
                 ),
                 Container(
@@ -157,7 +153,7 @@ class _OnBoardState extends State<OnBoarding> {
                       await _storeOnboardInfo();
                       // ignore: use_build_context_synchronously
                       Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => const Home()));
+                          MaterialPageRoute(builder: (context) => const MainApp()));
                     }
 
                     _pageController.jumpToPage(index + 1);
