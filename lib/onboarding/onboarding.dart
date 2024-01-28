@@ -1,6 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
-import 'package:e/home.dart';
+import 'package:hydrate/home.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -36,12 +36,12 @@ class _OnBoardState extends State<OnBoarding> {
       paragraph:
           "Don't worry. you are at the right place! Myself Kunal and have created this application to remind you (and myself) to drink water!",
       background: Colors.white,
-      button: const Color.fromRGBO(80, 91, 230, 1),
+      button: Colors.black,
     ),
     OnboardingPages(
       heading: "You are almost done!",
       paragraph: "Great! We have configured the application for you! We'll send you a notification when it's the time to drink water!",
-      background: const Color.fromRGBO(80, 91, 230, 1),
+      background: Colors.black,
       button: Colors.white,
     ),
   ];
@@ -71,11 +71,11 @@ class _OnBoardState extends State<OnBoarding> {
     return Scaffold(
       backgroundColor: currentIndex % 2 == 0
           ? Colors.white
-          : const Color.fromRGBO(80, 91, 230, 1),
+          : Colors.black,
       appBar: AppBar(
         backgroundColor: currentIndex % 2 == 0
             ? Colors.white
-            : const Color.fromRGBO(80, 91, 230, 1),
+            : Colors.black,
         elevation: 0.0,
         actions: [
           TextButton(
@@ -163,7 +163,7 @@ class _OnBoardState extends State<OnBoarding> {
                         horizontal: 160.0, vertical: 10),
                     decoration: BoxDecoration(
                       color: index % 2 == 0
-                          ? const Color.fromRGBO(80, 91, 230, 1)
+                          ? Colors.black
                           : Colors.white,
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -176,7 +176,7 @@ class _OnBoardState extends State<OnBoarding> {
                             fontSize: 16.0,
                             color: index % 2 == 0
                                 ? Colors.white
-                                : const Color.fromRGBO(80, 91, 230, 1),
+                                : Colors.black,
                           ),
                         ),
                       ],

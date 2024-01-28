@@ -1,4 +1,4 @@
-import 'package:e/notifications/notifs.dart';
+import 'package:hydrate/notifications/notifs.dart';
 import 'package:flutter/material.dart';
 
 class MainApp extends StatefulWidget {
@@ -33,7 +33,7 @@ ElevatedButton(
     notificationServices.sendNotification('It\'s time to drink water!', 'Reminder Number: 2');
     },
   style: ElevatedButton.styleFrom(
-    backgroundColor: const Color.fromRGBO(80, 91, 230, 1),
+    backgroundColor: Colors.black,
     foregroundColor: Colors.white,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(8),

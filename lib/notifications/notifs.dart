@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationServices {
@@ -18,7 +17,7 @@ class NotificationServices {
 
   void sendNotification(String title, String body) async {
     AndroidNotificationDetails androidNotificationDetails =
-        const AndroidNotificationDetails(
+        AndroidNotificationDetails(
       'channelId',
       'channelName',
       importance: Importance.max,
@@ -29,20 +28,7 @@ class NotificationServices {
       android: androidNotificationDetails,
     );
 
-    await _flutterLocalNotificationsPlugin.show(
-      0,
-      title,
-      body,
-      notificationDetails,
-    );
-
-    Timer.periodic(const Duration(hours: 1), (Timer timer) async {
-      await _flutterLocalNotificationsPlugin.show(
-        timer.tick,
-        title,
-        body,
-        notificationDetails,
-      );
-    });
+    await _flutterLocalNotificationsPlugin.periodicallyShow(
+        0, title, body, RepeatInterval.everyMinute, notificationDetails);
   }
 }

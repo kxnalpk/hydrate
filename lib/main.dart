@@ -1,5 +1,5 @@
-import 'package:e/home.dart';
-import 'package:e/onboarding/onboarding.dart';
+import 'package:hydrate/home.dart';
+import 'package:hydrate/onboarding/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
