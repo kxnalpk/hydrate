@@ -29,6 +29,6 @@ class NotificationServices {
     );
 
     await _flutterLocalNotificationsPlugin.periodicallyShow(
-        0, title, body, RepeatInterval.everyMinute, notificationDetails);
+        0, title, body, RepeatInterval.hourly, notificationDetails);
   }
 }
