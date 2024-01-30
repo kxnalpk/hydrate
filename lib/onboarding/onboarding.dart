@@ -35,14 +35,14 @@ class _OnBoardState extends State<OnBoarding> {
       heading: "Don't remember to drink water?",
       paragraph:
           "Don't worry. you are at the right place! Myself Kunal and have created this application to remind you (and myself) to drink water!",
-      background: Colors.white,
-      button: Colors.black,
+      background: Color.fromARGB(255, 81, 81, 61),
+      button: Color.fromARGB(255, 27, 32, 33),
     ),
     OnboardingPages(
       heading: "You are almost done!",
       paragraph: "Great! We have configured the application for you! We'll send you a notification when it's the time to drink water!",
-      background: Colors.black,
-      button: Colors.white,
+      background: Color.fromARGB(255, 27, 32, 33),
+      button: Color.fromARGB(255, 81, 81, 61),
     ),
   ];
 
@@ -70,12 +70,12 @@ class _OnBoardState extends State<OnBoarding> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: currentIndex % 2 == 0
-          ? Colors.white
-          : Colors.black,
+          ? Color.fromARGB(255, 81, 81, 61)
+          : Color.fromARGB(255, 27, 32, 33),
       appBar: AppBar(
         backgroundColor: currentIndex % 2 == 0
-            ? Colors.white
-            : Colors.black,
+            ? Color.fromARGB(255, 81, 81, 61)
+            : Color.fromARGB(255, 27, 32, 33),
         elevation: 0.0,
         actions: [
           TextButton(
@@ -87,7 +87,7 @@ class _OnBoardState extends State<OnBoarding> {
             child: Text(
               "Skip",
               style: TextStyle(
-                color: currentIndex % 2 == 0 ? Colors.black : Colors.white,
+                color: currentIndex % 2 == 0 ? Color.fromARGB(255, 27, 32, 33) : Color.fromARGB(255, 81, 81, 61),
               ),
             ),
           )
@@ -129,7 +129,7 @@ class _OnBoardState extends State<OnBoarding> {
                     fontSize: 35,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Poppins',
-                    color: index % 2 == 0 ? Colors.black : Colors.white,
+                    color: Colors.white,
                   ),
                 ),
                 Container(
@@ -142,7 +142,7 @@ class _OnBoardState extends State<OnBoarding> {
                       fontSize: 16.0,
                       fontWeight: FontWeight.normal,
                       fontFamily: 'Poppins',
-                      color: index % 2 == 0 ? Colors.black : Colors.white,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -163,8 +163,8 @@ class _OnBoardState extends State<OnBoarding> {
                         horizontal: 160.0, vertical: 10),
                     decoration: BoxDecoration(
                       color: index % 2 == 0
-                          ? Colors.black
-                          : Colors.white,
+                          ? Color.fromARGB(255, 27, 32, 33)
+                          : Color.fromARGB(255, 81, 81, 61),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Row(
@@ -174,9 +174,7 @@ class _OnBoardState extends State<OnBoarding> {
                           "Next",
                           style: TextStyle(
                             fontSize: 16.0,
-                            color: index % 2 == 0
-                                ? Colors.white
-                                : Colors.black,
+                            color: Colors.white
                           ),
                         ),
                       ],

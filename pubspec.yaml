@@ -32,7 +32,10 @@ dependencies:
     sdk: flutter
   shared_preferences: ^2.0.5
   flutter_local_notifications: ^9.7.0
+  flutter_heatmap_calendar: ^1.0.5
   timezone: ^0.8.0
+  slide_to_act: ^2.0.2
+  awesome_dialog: ^3.2.0
 
 
   # The following adds the Cupertino Icons font to your application.
