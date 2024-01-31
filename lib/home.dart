@@ -1,7 +1,6 @@
 import 'package:hydrate/notifications/notifs.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:awesome_dialog/awesome_dialog.dart';
 
 class MainApp extends StatefulWidget {
   const MainApp({Key? key}) : super(key: key);
@@ -19,6 +18,21 @@ class _MainAppState extends State<MainApp> {
     super.initState();
     _initializePrefs();
     notificationServices.initialiseNotifications();
+  }
+
+  Future<int> _getNumberOfGlasses() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getInt('glasses') ?? 0;
+  }
+
+  Future<void> _storeNumberOfGlasses() async {
+    print("Shared pref called");
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int currentGlasses = prefs.getInt('glasses') ?? 0;
+    currentGlasses = (currentGlasses + 1) % 9;
+    await prefs.setInt('glasses', currentGlasses);
+    print(currentGlasses);
   }
 
   Future<void> _initializePrefs() async {
@@ -50,6 +64,27 @@ class _MainAppState extends State<MainApp> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
+                padding: const EdgeInsets.all(10),
+                child: FutureBuilder<int>(
+                  future: _getNumberOfGlasses(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return CircularProgressIndicator();
+                    } else {
+                      return Text(
+                        'You have drunk ${snapshot.data} glasses of water today!',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.center,
+                      );
+                    }
+                  },
+                ),
+              ),
+              Padding(
                 padding: const EdgeInsets.all(25),
                 child: FutureBuilder<int>(
                   future: _getReminderStatus(),
@@ -67,6 +102,7 @@ class _MainAppState extends State<MainApp> {
                         ),
                         onPressed: () async {
                           await _toggleReminderStatus();
+                          await _storeNumberOfGlasses();
 
                           notificationServices.sendNotification(
                             'Beep Boop, It\'s time to drink water!',
@@ -74,7 +110,9 @@ class _MainAppState extends State<MainApp> {
                           );
                         },
                         child: Text(
-                          (snapshot.data == 0) ? "Press to start" : "Press to stop",
+                          (snapshot.data == 0)
+                              ? "Press to start"
+                              : "Press to stop",
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
