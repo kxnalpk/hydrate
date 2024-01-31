@@ -96,7 +96,7 @@ class _MainAppState extends State<MainApp> {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color.fromARGB(255, 72, 165, 59),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.circular(20),
                           ),
                           minimumSize: Size(1180, 80),
                         ),
